@@ -1,0 +1,15 @@
+--- 
+- name: use register 
+  hosts: 
+    - web
+    - servers
+  tasks:
+    - name: get datetime
+      command: date +%s
+      register: datetime
+
+    - name: print datetime
+      debug:
+        var: datetime
+
+

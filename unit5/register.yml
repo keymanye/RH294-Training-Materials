@@ -1,0 +1,16 @@
+--- 
+- name: use register 
+  hosts: 
+    - web
+    - servers
+  tasks:
+    - name: install the package
+      yum:
+        name: net-tools
+      register: install_result
+
+    - name: print install package message
+      debug:
+        var: install_result
+
+

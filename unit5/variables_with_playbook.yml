@@ -1,0 +1,13 @@
+---
+- name: variables playbook
+  hosts: web
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: "install {{ pkgname }} package"
+      yum:
+        name: "{{ pkgname }}"
+        state: latest
+
+
+...

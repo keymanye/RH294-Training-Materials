@@ -1,0 +1,13 @@
+---
+- name: variables file  playbook
+  hosts: web
+  vars_files:
+    - vars/package.yml
+  tasks:
+    - name: "install {{ pkgname }} package"
+      yum:
+        name: "{{ pkgname }}"
+        state: latest
+
+
+...

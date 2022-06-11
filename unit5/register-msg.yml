@@ -1,0 +1,11 @@
+--- 
+- name: use register 
+  hosts: 
+    - web
+    - servers
+  tasks:
+    - name: print a  message
+      debug:
+        msg: "do you see me ?"
+
+

@@ -1,0 +1,11 @@
+---
+- name: test host variables and group variables
+  hosts: servers
+  tasks:
+    - name: "create linux user {{ user }}"
+      user:
+        name: "{{ user }}"
+        #uid: 5002
+
+
+...

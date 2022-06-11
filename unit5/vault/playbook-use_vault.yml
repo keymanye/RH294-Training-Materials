@@ -1,0 +1,9 @@
+---
+- name: playbook use vault 
+  hosts: all
+  vars_files:
+    - vars/userinfo-secret.yml
+  tasks:
+    - name: "create user {{ username }}"
+      user:
+        name: "{{ username }}"

@@ -1,0 +1,11 @@
+---
+- name: get facts
+  hosts: web
+  tasks:
+    - name: get hostname
+      debug:
+        msg: |
+          hostname: {{ ansible_facts["hostname"] }}
+          memory:  {{ ansible_facts["memtotal_mb"]}}
+          kernel: {{ ansible_facts["kernel"] }}
+          sdasize: {{ansible_facts["devices"]["sda"]["size"]}}

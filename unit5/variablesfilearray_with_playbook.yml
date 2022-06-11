@@ -1,0 +1,12 @@
+---
+- name: variables file  playbook
+  hosts: web
+  vars_files:
+    - vars/array_variables.yml
+  tasks:
+    - name: "install {{ members.members.name }} package"
+      user:
+        name: "{{ members.member1.name }}"
+
+
+...
