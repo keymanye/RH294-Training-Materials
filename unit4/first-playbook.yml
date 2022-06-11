@@ -1,0 +1,15 @@
+---
+- name: RH294 training first playbook
+  hosts: web
+  tasks:
+    - name: describle task 1  info
+      copy:
+        src: rh294-copy-test.txt
+        dest: /tmp
+        mode: "0600"
+
+    - name: my trianing task 2
+      command: touch /tmp/test1.txt
+
+
+...

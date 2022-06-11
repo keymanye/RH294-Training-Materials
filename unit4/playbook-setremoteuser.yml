@@ -1,0 +1,9 @@
+---
+- name: RH294 training playbook set remoteuser 
+  hosts: web
+  remote_user: training
+  become: yes
+  tasks:
+    - name: describle task 1  info
+      command: "id"
+...

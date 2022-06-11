@@ -1,0 +1,24 @@
+--- 
+- name: rh294 multiplay play 1
+  hosts: all
+  tasks:
+    - name: play 1  task 1
+      dnf:
+        name: httpd
+        state: latest
+    
+    - name: play1 task2 
+      service:
+        name: httpd
+        state: started
+
+- name: rh294 multiplay play 2
+  hosts: web
+  tasks:
+    - name: play 2  task 1 copy index.html to apache document root 
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        mode: "0644"
+        owner: apache
+        group: apache

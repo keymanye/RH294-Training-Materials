@@ -1,0 +1,13 @@
+[web]
+server-A
+
+[database]
+server-b
+
+[servers:children]
+web
+database
+
+
+#[winservers]
+#server[1:2]

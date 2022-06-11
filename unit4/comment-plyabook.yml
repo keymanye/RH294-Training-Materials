@@ -1,0 +1,22 @@
+---
+- name: RH294 training  playbook  comment
+  #本playbook作用于主机组web
+  hosts: web
+  tasks:
+    - name: "describle task 1  info"
+      copy:
+        src: rh294-copy-test.txt
+        dest: /tmp  #这里是目标目录
+        mode: "0600"
+
+    - name: my trianing task 2
+      command: touch /tmp/test1.txt
+
+    - name: this is a ansible string 
+      command: |
+        echo "linux is a good ps "
+
+    - name: this is a ansible string too 
+      command: |
+        echo "windows  is a good ps too "
+...
