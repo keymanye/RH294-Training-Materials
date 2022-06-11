@@ -1,0 +1,30 @@
+[webserver]
+192.168.1.1
+172.31.0.[8:12]
+
+[dbserver]
+db1.example.com
+db8.example.com
+
+[allservers:children]
+webserver
+dbserver
+
+
+[winservers]
+windows1.example.com
+windows2.example.com
+
+
+++++++++++++++++++++++++
+mkdir group_vars
+cd group_vars
+touch winservers
+vim winservers
+------------yaml--------------
+ansible_connection: winrm
+ansible_port: 5986
+
+------------ini--------------
+ansible_connection=winrm
+ansible_port=5986
