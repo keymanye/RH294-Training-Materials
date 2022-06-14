@@ -1,0 +1,14 @@
+---
+- name: loop and when
+  hosts: web
+  vars:
+    numbers:
+     - a
+     - b
+  tasks:
+    - name: print message
+      debug:
+        msg: "print {{item}}"
+      loop: "{{numbers}}"
+      when: item == "b"
+

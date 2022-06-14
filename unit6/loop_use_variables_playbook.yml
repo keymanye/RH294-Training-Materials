@@ -1,0 +1,20 @@
+---
+- name: no loop playbook
+  hosts: web
+  vars:
+    allow_ports:
+      - 88/tcp
+      - 89/tcp
+  tasks:
+    - name: start firewalld service
+      service:
+        name: firewalld
+        state: restarted
+
+    - name: "allow access tcp port {{item}}"
+      firewalld:
+        port: "{{item}}"
+        permanent: yes
+        state: enabled
+        immediate: yes
+      loop: "{{ allow_ports }}"

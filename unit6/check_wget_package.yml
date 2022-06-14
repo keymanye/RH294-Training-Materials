@@ -1,0 +1,16 @@
+---
+- name: check wget rpm package
+  hosts: web
+  vars:
+    print_detail: true
+  tasks:
+    - name: query rpm package
+      yum:
+        name: wget
+        state: present
+      register: rpm_status
+
+    - name: print rpm package status 
+      debug:
+        var: rpm_status
+      when: print_detail

@@ -1,0 +1,18 @@
+---
+- name: loop and when
+  hosts: web
+  vars:
+    - a: 10 
+    - b: 20
+  tasks:
+    - name: print message
+      debug:
+        msg: "print test"
+
+      #when: a > 15 and b < 30 
+      #when: a > 50 or b < 30 
+      when:
+        - a > 0 
+        - b > 40
+        - a is defined
+

@@ -1,0 +1,21 @@
+---
+- name: install httpd and configure httpd
+  hosts: web 
+  tasks:
+    - name: install httpd packages
+      yum:
+        name: httpd
+        state: latest
+
+    - name: modify httpd config file
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        state: present
+        regexp: 'Listen 80'
+        line: 'Listen 8181'
+      notify: restart apache
+  handlers:
+    - name: restart apache
+      service:
+        name: httpd
+        state: restarted

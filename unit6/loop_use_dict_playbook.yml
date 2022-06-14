@@ -1,0 +1,15 @@
+---
+- name: no loop playbook
+  hosts: web
+  vars:
+    - user1:
+      name: "sz"
+    - user2:
+      name: "sl"
+  tasks:
+    - name: "allow access tcp port {{item}}"
+      debug:
+        msg: "{{item.user}}"
+      loop:
+        - user: "sz"
+        - user: "ls"

@@ -1,0 +1,22 @@
+---
+- name: no loop playbook
+  hosts: web
+  tasks:
+    - name: start firewalld service
+      service:
+        name: firewalld
+        state: restarted
+
+    - name: allow access tcp port 88
+      firewalld:
+        port: 88/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
+
+    - name: allow access tcp port 89
+      firewalld:
+        port: 89/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes

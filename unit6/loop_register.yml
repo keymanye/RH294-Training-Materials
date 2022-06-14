@@ -1,0 +1,14 @@
+---
+- name: loop with register
+  hosts: web
+  tasks:
+    - name: run linux command module
+      shell: "echo This is my item {{item}}"
+      loop:
+        - item1
+        - item2
+      register: shell_result
+
+    - name: run debug module get shell result 
+      debug:
+        var: shell_result
