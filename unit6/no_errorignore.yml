@@ -1,0 +1,13 @@
+---
+- name: no error ignore
+  hosts: web
+  tasks:
+    - name: install RPM package
+      yum:
+        name: http
+        state: latest
+
+    - name: print message
+      debug:
+        msg: "task print message running"
+

@@ -1,0 +1,15 @@
+---
+# change  = 0  handler not exec 
+- name: error and notify
+  hosts: web
+  tasks:
+    - name: print message
+      copy:
+        src: demo.txt
+        dest: /tmp/demo.txt
+      notify:  x1
+
+  handlers:
+    - name: x1
+      debug: 
+        msg: "handler x1 running"

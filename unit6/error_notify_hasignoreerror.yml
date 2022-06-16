@@ -1,0 +1,20 @@
+---
+# change  = 0  handler not exec 
+- name: error and notify
+  hosts: web
+  tasks:
+    - name: print message
+      debug:
+        msg: "notify handlers"
+      notify:  x1
+
+    - name: install rpm package
+      yum:
+        name: https
+        state: latest
+      ignore_errors: yes 
+
+  handlers:
+    - name: x1
+      debug: 
+        msg: "handler x1 running"

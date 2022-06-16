@@ -1,0 +1,18 @@
+---
+- name: demo block
+  hosts: web
+  tasks:
+    - name: run task
+      block:
+        - name: run shell command
+          #shell: echo $X1
+          shell: cat xxx1
+          register: echo_data
+      rescue:
+        - name: run rescue task
+          debug:
+            var: echo_data
+      always:
+        - name: print
+          debug:
+            msg: "always running"

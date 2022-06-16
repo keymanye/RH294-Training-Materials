@@ -1,0 +1,17 @@
+---
+- name: changed when
+  hosts: web
+  vars:
+    change: true
+  tasks:
+    - name: debug message
+      debug:
+        msg: "tell you  a message"
+      notify: x2
+      changed_when: change 
+
+  handlers:
+    - name: x2
+      debug:
+        msg: "handlers x2  running"
+

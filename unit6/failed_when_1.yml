@@ -1,0 +1,12 @@
+---
+- name: fail when
+  hosts: web
+  tasks:
+    - name: get url 
+      shell: cat /etc/passwd
+      register: echo_data
+      failed_when: " 'zhangsan'  in echo_data.stdout "
+
+    - name: debug uri info 
+      debug:
+        var: echo_data
